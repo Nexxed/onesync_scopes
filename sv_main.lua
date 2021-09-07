@@ -52,16 +52,16 @@ end)
     this export returns true/false based on whether or not
     the two given players are in scope of eachother
 ]]
-exports("IsPlayerInScope", function(player1, player2)
+exports("IsPlayerInScope", function(source, player)
 
-    -- if a scope object doesn't exist for player1, return false
-    if(not scopes[player1]) then
+    -- if a scope object doesn't exist, return false
+    if(not scopes[source]) then
         return false
     end
 
     -- loop through every player in p1's scope and find one matching the given player
-    for index, p in ipairs(scopes[player1]) do
-        if(p == player2) then
+    for _, p in ipairs(scopes[source]) do
+        if(p == player) then
             return true
         end
     end
@@ -97,8 +97,8 @@ exports("TriggerEventInPlayerScope", function(eventName, source, ...)
     end
 
     -- send event to every player in scope of source
-    for index, player in ipairs(scopes[source]) do
-        TriggerClientEvent(eventName, p, table.unpack({...}))
+    for _, player in ipairs(scopes[source]) do
+        TriggerClientEvent(eventName, player, table.unpack({...}))
     end
 
     -- return a true-y value (in this case, every player in scope)
@@ -118,7 +118,7 @@ exports("TriggerLatentEventInPlayerScope", function(eventName, source, bps, ...)
 
     -- send latent event to every player in the scope of source
     for _, player in ipairs(scopes[source]) do
-        TriggerLatentClientEvent(eventName, source, bps, table.unpack({...}))
+        TriggerLatentClientEvent(eventName, player, bps, table.unpack({...}))
     end
 
     -- return a true-y value (in this case, every player in scope)
