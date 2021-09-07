@@ -50,7 +50,7 @@ This triggers a ***latent*** event to all players within the scope of the given 
 
 Example:
 ```lua
-local scopes = exports.onesync_scopes --                                              bps
+local scopes = exports.onesync_scopes
 local eventPlayers = scopes:TriggerLatentEventInPlayerScope("some-event-name:yes", player, 500, arg1, arg2, arg3, ...)
 -- tip: same syntax as TriggerLatentClientEvent
 
