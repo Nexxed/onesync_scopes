@@ -1,7 +1,11 @@
 # OneSync Scopes
 A OneSync Infinity resource that tracks players in scopes of others and provides extra networking utilities for compatible scripts.
 
-# Requirements
+As an example scenario for why this resource can help you, is when you need to network an animation (via events) for a player so that others within their scope (or nearby) can see it.
+
+Instead of looping through your entire servers' player table (and calculating distance and so on...) you'd just call one function and your desired event reaches all relevant players, which is far more efficient than sending the event to all players or calculating distance!
+
+# Requirements:
 - FXServer running OneSync Infinity
 
 # Documentation
