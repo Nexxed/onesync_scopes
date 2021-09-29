@@ -6,7 +6,26 @@ local scopes = {}
     with dead/disconnected players
 ]]
 AddEventHandler("playerDropped", function()
+    local source = source
+
+    -- unset the scope for this source
     scopes[source] = nil
+
+    -- loop through every stored player scope and remove any occurrences of this source
+    for player, players in pairs(scopes) do
+
+        -- loop through every player in this players' scope
+        for k, p in ipairs(players) do
+
+            -- if the source is in the players' scope
+            if(source == p) then
+
+                -- remove the value from the table
+                table.remove(scopes[source], k)
+
+            end
+        end
+    end
 end)
 
 
