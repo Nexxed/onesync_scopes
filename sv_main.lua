@@ -15,13 +15,13 @@ AddEventHandler("playerDropped", function()
     for player, players in pairs(scopes) do
 
         -- loop through every player in this players' scope
-        for k, p in ipairs(players) do
+        for index, p in ipairs(players) do
 
             -- if the source is in the players' scope
             if(source == p) then
 
                 -- remove the value from the table
-                table.remove(scopes[source], k)
+                table.remove(scopes[source], index)
 
             end
         end
