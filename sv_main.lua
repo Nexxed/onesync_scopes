@@ -33,8 +33,8 @@ end)
     this event gets fired when a player enters anothers scope
 ]]
 AddEventHandler("playerEnteredScope", function(data)
-    local source = data["for"]
-    local player = data.player
+    local source = tonumber(data["for"])
+    local player = tonumber(data.player)
 
     -- create a scopes table for this source player, if doesn't exist
     if(not scopes[source]) then
@@ -49,8 +49,8 @@ end)
     same as the above, but for leaving the scope instead
 ]]
 AddEventHandler("playerLeftScope", function(data)
-    local source = data["for"]
-    local player = data.player
+    local source = tonumber(data["for"])
+    local player = tonumber(data.player)
 
     -- create a scopes table for this source player, if doesn't exist
     if(not scopes[source]) then
